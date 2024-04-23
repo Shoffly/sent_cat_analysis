@@ -7,7 +7,7 @@ import os
 
 key = st.secrets["api_key"]
 # Initialize OpenAI API client with your API key
-client = OpenAI(key)
+client = OpenAI(api_key=key)
 
 # Sample CSV data
 sample_data = """Review
