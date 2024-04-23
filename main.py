@@ -5,9 +5,9 @@ import base64
 import os
 
 
-
+key = st.secrets["openai"]["api_key"]
 # Initialize OpenAI API client with your API key
-client = OpenAI(st.secrets["openai"]["api_key"])
+client = OpenAI(key)
 
 # Sample CSV data
 sample_data = """Review
