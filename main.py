@@ -49,7 +49,8 @@ def main():
 
         # Choose column with reviews
         review_column = st.selectbox("Select review column", df.columns)
-        st.write(df)
+df.dropna(subset=[review_column], inplace=True)
+        St.write(df)
         # Define buckets dynamically based on user input
         buckets_input = st.text_input("Enter buckets (comma-separated)")
         buckets = buckets_input.split(',')
