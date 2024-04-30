@@ -40,7 +40,7 @@ def main():
     uploaded_file = st.file_uploader("Upload your CSV file", type=['csv'])
     # Add download link for sample CSV file
     st.markdown(download_sample_csv(sample_data), unsafe_allow_html=True)
-    st.write("This is a sample of how the reviews should look like.")
+st.write("This is a sample of how the reviews should look like.")
 
 
     if uploaded_file is not None:
