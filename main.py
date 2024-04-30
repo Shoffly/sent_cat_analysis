@@ -4,7 +4,6 @@ from openai import OpenAI
 import base64
 import os
 
-
 key = st.secrets["api_key"]
 # Initialize OpenAI API client with your API key
 client = OpenAI(api_key=key)
@@ -40,8 +39,7 @@ def main():
     uploaded_file = st.file_uploader("Upload your CSV file", type=['csv'])
     # Add download link for sample CSV file
     st.markdown(download_sample_csv(sample_data), unsafe_allow_html=True)
-st.write("This is a sample of how the reviews should look like.")
-
+    st.write("This is a sample of how the reviews should look like.")
 
     if uploaded_file is not None:
         # Read CSV
@@ -51,6 +49,7 @@ st.write("This is a sample of how the reviews should look like.")
         review_column = st.selectbox("Select review column", df.columns)
         df.dropna(subset=[review_column], inplace=True)
         st.write(df)
+
         # Define buckets dynamically based on user input
         buckets_input = st.text_input("Enter buckets (comma-separated)")
         buckets = buckets_input.split(',')
@@ -98,7 +97,7 @@ def analyze_data(data, buckets):
             frequency_penalty=0,
             presence_penalty=0
         )
-        print(response)
+
         # Extracting the message content
         content = response.choices[0].message.content
 
@@ -117,9 +116,8 @@ def analyze_data(data, buckets):
                 sentiment = line.split(": ")[1]
 
         categories.append(classification)
-        print(classification)
         sentiments.append(sentiment)
-        print(sentiments)
+
     return {'categories': categories, 'sentiments': sentiments}
 
 
