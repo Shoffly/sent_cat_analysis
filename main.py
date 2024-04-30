@@ -43,7 +43,7 @@ def main():
 
     if uploaded_file is not None:
         # Read CSV
-        df = pd.read_csv(uploaded_file, encoding='utf-8-sig')
+        df = pd.read_csv(uploaded_file, encoding='utf-8-bom')
 
         # Choose column with reviews
         review_column = st.selectbox("Select review column", df.columns)
